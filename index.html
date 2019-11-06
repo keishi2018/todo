@@ -3,28 +3,33 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width">
+
+    <title>TIMER</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>TODAY</title>
+
     <link rel="stylesheet" href="css/style.css">
 <!-- relとは、ファイルとの関連性を定義する。hrefは、よみこむファイルを指定する。 -->
   </head>
 
   <body>
-        <header>
-            <h1>TODAY</h1>
-        </header>
-    
-        <div class="container">
-            <script>
-              var today = new Date();
-              var todayHtml = today.getFullYear() + '/' + (today.getMonth()+1) + '/' + today.getDate();
+         <div class="container">
+            <P id="timer">00:00:00</P>
 
-              document.write('<p class="date">' + todayHtml + '</p>');
-            </script>
+           <script>
+              document.getElementById('timer').innerHTML = '00:01:00';
+              document.getElementById('timer').innerHTML = '00:02:00';
+              document.getElementById('timer').innerHTML = '00:03:00';
+              document.getElementById('timer').innerHTML = '00:04:00';
+              document.getElementById('timer').innerHTML = '00:05:00';
+           </script>
+           
+           <div>
+             <button id="start_stop" class="btn btn-lg btn-primary">START</button>
+           </div>
         </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
