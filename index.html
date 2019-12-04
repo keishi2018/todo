@@ -19,11 +19,25 @@
          <div class="container">
             <P id="timer">00:00:00</P>
 
-            <script type="text/javascript" src="index.js"></script>
-           
            <div>
              <button id="start_stop" class="btn btn-lg btn-primary">START</button>
            </div>
+
+           <script>
+            var addZero = function(value) {
+                if (value < 10) {
+                    value = '0' + value;
+                }
+                return value;
+            };
+            
+            document.getElementById('start_stop').addEventListener('click', function(){
+                var start = new Date();
+            
+                document.getElementById('timer').innerHTML = start.getTime();
+            });
+        </script>
+           
         </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
