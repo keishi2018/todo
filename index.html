@@ -23,20 +23,20 @@
              <button id="start_stop" class="btn btn-lg btn-primary">START</button>
            </div>
 
-           <script>
-            var addZero = function(value) {
-                if (value < 10) {
-                    value = '0' + value;
-                }
-                return value;
-            };
-            
+          <script>
             document.getElementById('start_stop').addEventListener('click', function(){
-                var start = new Date();
-            
-                document.getElementById('timer').innerHTML = start.getTime();
+              var start = new Date();
+
+              setInterval(goTimer, 10);
             });
-        </script>
+
+            //タイマーの処理
+            var goTimer = function() {
+              var now = new Date();
+
+              document.getElementById('timer').innerHTML = now.getTime() - start.getTime();
+            }
+          </script>
            
         </div>
     <!-- Optional JavaScript -->
