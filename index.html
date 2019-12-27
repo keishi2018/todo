@@ -24,17 +24,39 @@
            </div>
 
           <script>
-            document.getElementById('start_stop').addEventListener('click', function(){
-              var start = new Date();
+            var start;
 
-              setInterval(goTimer, 10);
+            var timer_id;
+            document.getElementById('start_stop').addEventListener('click', function(){
+              if(this.innerHTML === 'START'){
+                start = new Date();
+
+                timer_id = setInterval(goTimer, 10);
+
+                // STOPボタンにする
+                this.innerHTML = 'STOP';
+                this.classList.remove('btn-default');
+                this.classList.add('btn-danger');
+              } else{
+                clearInterval(timer_id);
+
+                //STARTボタンにする
+                this.innerHTML = 'START';
+                this.classList.remove('btn-danger');
+                this.classList.add('btn-default');
+              }
             });
 
             //タイマーの処理
             var goTimer = function() {
               var now = new Date();
 
-              document.getElementById('timer').innerHTML = now.getTime() - start.getTime();
+              var milli = now.getTime() - start.getTime();
+              var seconds = Math.floor(milli / 1000);
+              var minutes = Math.floor(seconds / 60);
+              var hours = Math.floor(minutes / 60);
+
+              document.getElementById('timer').innerHTML = hours + ':' + minutes + ':' + seconds;
             }
           </script>
            
